@@ -1,15 +1,13 @@
 zuul:
   routes:
-    get:
-      path: /get/**
-      url: http://httpbin.org/get
-    links:
-      path: /links/**
-      url: http://httpbin.org/links
-    images:
-      path: /image/**
-      url: http://httpbin.org/image
+    httpbin:
+      path: /**
+      serviceId: httpbin
 
-eureka:
-  client:
+httpbin:
+  ribbon:
+    listOfServers: httpbin.org,eu.httpbin.org
+
+ribbon:
+  eureka:
     enabled: false
